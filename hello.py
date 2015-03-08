@@ -1,7 +1,7 @@
 import os
 
 from init import app
-from flask import render_template
+from flask import render_template, redirect, url_for
 from flask import jsonify
 import json
 from database import database
@@ -9,6 +9,11 @@ from database import database
 @app.route("/")
 def hello():
     # return app.send_static_file('templates/base.html')
+    # return render_template('base.html')
+    return redirect(url_for('get_resume'))
+
+@app.route("/resume")
+def get_resume():
     return render_template('resume.html')
 
 @app.route('/userlist')
