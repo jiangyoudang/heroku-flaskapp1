@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title> Angular app</title>
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body ng-app="app" ng-controller="AppCtrl">
+
+<button ng-click="addUser()">Add user</button>
+<div>
+    <div class="users" ng-repeat="user in users">
+        <input class="user" type="text" ng-model="user.name"/>
+        <input class="user" type="text" ng-model="user.email"/>
+
+        <button ng-click="updateUser(user)">Update</button>
+        <button ng-click="deleteUser(user)">Delete</button>
+    </div>
+
+    <div>
+        <select ng-model="curr_d">
+            <option ng-repeat="(name, opts) in dropli">{{ name }}</option>
+        </select>
+        <select>
+            <option ng-repeat="op in dropli[curr_d]">{{ op }}</option>
+        </select>
+        {{ curr_d }}
+
+        <div>
+
+            <a href="userlist"> link </a>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+</html>

@@ -4,19 +4,28 @@ from init import app
 from flask import render_template
 from flask import jsonify
 import json
-from database import model
+from database import database
 
 @app.route("/")
 def hello():
-    return app.send_static_file('templates/base.html')
+    # return app.send_static_file('templates/base.html')
+    return render_template('resume.html')
 
+@app.route('/userlist')
+def get_user_list():
+    d = database.getUsers()
+    # result = json.dumps(d)
+    # return result
 
-# @app.route('/userlist')
-# def get_user_list():
-#     d = db.get_user()
-#     # result = json.dumps(d)
-#     # return result
-#     return jsonify(users = d)
+    return render_template('base.html', users = d)
+
+#############
+# with angular js
+
+@app.route('/ng')
+def ng_index():
+    return app.send_static_file('index.html')
+
 #
 # @app.route('/add')
 # def add_user():

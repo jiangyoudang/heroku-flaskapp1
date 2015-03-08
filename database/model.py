@@ -12,7 +12,6 @@ class Users(db.Model):
 
 
 
-
 ###########################
 
 db.create_all()

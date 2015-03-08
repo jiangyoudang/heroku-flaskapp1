@@ -1,7 +1,7 @@
-from . import model
+from model import Users
 
-def addUsers():
-    model.Users()
+def getUsers():
+    return Users.query.all()
 
 
 
